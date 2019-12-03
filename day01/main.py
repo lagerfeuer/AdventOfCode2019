@@ -1,6 +1,7 @@
 #!/bin/python3
 
 from math import floor
+import sys
 
 
 def read_input(file_name):
@@ -30,13 +31,33 @@ def fuel_required(mass):
     return int(floor(mass / 3) - 2)
 
 
-def solve():
+def solve(part=1):
     """
     Solve the puzzle, given the input in input.txt
     """
     input_list = read_input('input.txt')
-    return sum(map(fuel_required, input_list))
+    # part 1
+    if part == 1:
+        return sum(map(fuel_required, input_list))
+    # part 2
+    fuel_list = []
+    for mass_in in input_list:
+        helper = True
+        total_fuel = 0
+        mass = mass_in
+        while helper or mass > 0:
+            helper = False
+            mass = fuel_required(mass)
+            if mass > 0:
+                total_fuel += mass
+        fuel_list.append(total_fuel)
+    return sum(fuel_list)
 
 
 if __name__ == '__main__':
-    print(solve())
+    if len(sys.argv) == 2 and int(sys.argv[1]) in [1, 2]:
+        print(solve(part=int(sys.argv[1])))
+    else:
+        print("Usage: ./main.py [1,2]")
+        print("Decide between part 1 and 2")
+        sys.exit(1)
