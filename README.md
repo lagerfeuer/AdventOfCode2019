@@ -1,11 +1,22 @@
 # Advent Of Code 2019
 
+## Running a solution
+
+```bash
+cd dayXX/
+./main.py 1 # part 1
+./main.py 2 # part 2
+```
+
 ## Testing
 
-For each solution, do:
-```
-cd dayXX
+```bash
 pytest
 ```
 
-`pytest` in the root directory will not work because of relative paths in the tests.
+or
+
+```bash
+cd dayXX/
+pytest
+```
