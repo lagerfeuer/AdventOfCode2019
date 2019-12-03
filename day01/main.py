@@ -2,6 +2,8 @@
 
 from math import floor
 import sys
+from os.path import dirname
+from os.path import join
 
 
 def read_input(file_name):
@@ -9,6 +11,8 @@ def read_input(file_name):
     Read input from file_name
     """
     input_list = []
+    # always open relative to current file
+    file_name = join(dirname(__file__), file_name)
     with open(file_name, 'r') as f_in:
         input_list = [line.strip()
                       for line in f_in.readlines()
