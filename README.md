@@ -8,6 +8,7 @@
 
 ```bash
 python3 -m venv venv/
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -31,3 +32,7 @@ or
 cd dayXX/
 pytest
 ```
+
+### Issues
+
+If `pytest` is not working, try `python -m pytest` or `deactivate && source venv/bin/activate` and run `pytest` again.
