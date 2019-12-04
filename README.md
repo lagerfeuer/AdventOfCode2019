@@ -1,5 +1,16 @@
 # Advent Of Code 2019
 
+## Requirements
+
+* geos
+
+## Dependencies
+
+```bash
+python3 -m venv venv/
+pip install -r requirements.txt
+```
+
 ## Running a solution
 
 ```bash
