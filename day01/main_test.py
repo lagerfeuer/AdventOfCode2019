@@ -4,7 +4,7 @@ import unittest
 
 import os
 
-from main import part1, part2, fuel_required
+from .main import part1, part2, fuel_required
 
 
 class Day1Test(unittest.TestCase):
