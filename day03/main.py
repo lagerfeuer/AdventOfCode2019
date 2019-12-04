@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-from math import floor
 import sys
-from enum import Enum
 from os.path import dirname
 from os.path import join
 
