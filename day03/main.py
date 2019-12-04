@@ -69,9 +69,6 @@ def calculate_distances(intersections):
 def part1():
     """
     Solve the puzzle (part 1), given the input in input.txt
-    ...before running the program,
-    replace position 1 with the value 12 and
-    replace position 2 with the value 2.
     """
     line1, line2 = read_input('input.txt')
     wire1 = parse_wire(line1)
