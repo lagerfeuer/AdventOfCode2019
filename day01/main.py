@@ -35,15 +35,19 @@ def fuel_required(mass):
     return int(floor(mass / 3) - 2)
 
 
-def solve(part=1):
+def part1():
     """
-    Solve the puzzle, given the input in input.txt
+    Solve the puzzle (part 1), given the input in input.txt
     """
     input_list = read_input('input.txt')
-    # part 1
-    if part == 1:
-        return sum(map(fuel_required, input_list))
-    # part 2
+    return sum(map(fuel_required, input_list))
+
+
+def part2():
+    """
+    Solve the puzzle (part 2), given the input in input.txt
+    """
+    input_list = read_input('input.txt')
     fuel_list = []
     for mass_in in input_list:
         helper = True
@@ -59,8 +63,12 @@ def solve(part=1):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2 and int(sys.argv[1]) in [1, 2]:
-        print(solve(part=int(sys.argv[1])))
+    if len(sys.argv) == 2:
+        arg = int(sys.argv[1])
+        if arg == 1:
+            print(part1())
+        if arg == 2:
+            print(part2())
     else:
         print("Usage: ./main.py [1,2]")
         print("Decide between part 1 and 2")

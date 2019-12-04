@@ -4,7 +4,7 @@ import unittest
 
 import os
 
-from main import solve, fuel_required
+from main import part1, part2, fuel_required
 
 
 class Day1Test(unittest.TestCase):
@@ -21,10 +21,10 @@ class Day1Test(unittest.TestCase):
         self.assertEqual(fuel_required(100756), 33583)
 
     def test_solution_1(self):
-        self.assertEqual(solve(), 3421505)
+        self.assertEqual(part1(), 3421505)
 
     def test_solution_2(self):
-        self.assertEqual(solve(part=2), 5129386)
+        self.assertEqual(part2(), 5129386)
 
 
 if __name__ == "__main__":
