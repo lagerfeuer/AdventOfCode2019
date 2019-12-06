@@ -11,22 +11,24 @@ pip install -r requirements.txt
 ## Running a solution
 
 ```bash
-cd dayXX/
-./main.py 1 # part 1
-./main.py 2 # part 2
+python3 dayXX/main.py
 ```
 
 ## Testing
 
+Test all solutions:
 ```bash
 pytest
 ```
 
-or
-
+Test a specific solution:
 ```bash
 cd dayXX/
 pytest
+```
+or
+```bash
+pytest dayXX/
 ```
 
 ### Issues

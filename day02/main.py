@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from math import floor
 import sys
 from enum import Enum
 from os.path import dirname
@@ -88,13 +87,5 @@ def part2():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        arg = int(sys.argv[1])
-        if arg == 1:
-            print(part1())
-        if arg == 2:
-            print(part2())
-    else:
-        print("Usage: ./main.py [1,2]")
-        print("Decide between part 1 and 2")
-        sys.exit(1)
+    print("Part 1:", part1())
+    print("Part 2:", part2())
