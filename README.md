@@ -1,9 +1,5 @@
 # Advent Of Code 2019
 
-## Requirements
-
-* geos
-
 ## Dependencies
 
 ```bash
