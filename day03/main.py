@@ -25,7 +25,7 @@ def parse_wire(raw_in):
     return: dictionary of coords: length pairs
     """
     last = (0, 0)
-    dist = 0
+    dist = 1
     wire = {}
     for movement in raw_in:
         direction = movement[0]
@@ -51,6 +51,12 @@ def calc_min_distance(intersections):
     return min_dist
 
 
+def calc_fewest_steps(wire1, wire2):
+    intersections = wire1.keys() & wire2.keys()
+    best = min(intersections, key=lambda x: wire1[x] + wire2[x])
+    return wire1[best] + wire2[best]
+
+
 def part1(wire1, wire2):
     """
     Solve the puzzle (part 1), given the input in input.txt
@@ -63,7 +69,7 @@ def part2(wire1, wire2):
     """
     Solve the puzzle (part 2), given the input in input.txt
     """
-    pass
+    return calc_fewest_steps(wire1, wire2)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ import unittest
 
 import os
 
-from .main import part1, part2, parse_wire, calc_min_distance, read_input
+from .main import part1, part2, parse_wire, calc_min_distance, calc_fewest_steps, read_input
 
 
 class Day3Test(unittest.TestCase):
@@ -17,6 +17,7 @@ class Day3Test(unittest.TestCase):
         min_coords = calc_min_distance(intersections)
         min_dist = sum(min_coords)
         self.assertEqual(min_dist, 6)
+        self.assertEqual(calc_fewest_steps(wire1, wire2), 30)
 
     def test_big_1(self):
         line1 = 'R75,D30,R83,U83,L12,D49,R71,U7,L72'.split(',')
@@ -27,6 +28,7 @@ class Day3Test(unittest.TestCase):
         min_coords = calc_min_distance(intersections)
         min_dist = sum(min_coords)
         self.assertEqual(min_dist, 159)
+        self.assertEqual(calc_fewest_steps(wire1, wire2), 610)
 
     def test_big_2(self):
         line1 = 'R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51'.split(',')
@@ -37,11 +39,17 @@ class Day3Test(unittest.TestCase):
         min_coords = calc_min_distance(intersections)
         min_dist = sum(min_coords)
         self.assertEqual(min_dist, 135)
+        self.assertEqual(calc_fewest_steps(wire1, wire2), 410)
 
     def test_solution1(self):
         lines = read_input('input.txt')
         wire1, wire2 = [parse_wire(line) for line in lines]
         self.assertEqual(part1(wire1, wire2), 303)
+
+    def test_solution2(self):
+        lines = read_input('input.txt')
+        wire1, wire2 = [parse_wire(line) for line in lines]
+        self.assertEqual(part2(wire1, wire2), 11222)
 
 
 if __name__ == "__main__":
