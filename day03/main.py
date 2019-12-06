@@ -4,8 +4,6 @@ import sys
 from os.path import dirname
 from os.path import join
 
-from shapely.geometry import LineString, Point
-
 
 def read_input(file_name):
     """
@@ -24,74 +22,59 @@ def parse_wire(raw_in):
     """
     origin: start of the wire (x,y)
     raw_in: movement of the wire in [RLDU][0-9]+
-    return: LineString containing the segments
+    return: dictionary of coords: length pairs
     """
-    line = [Point(0, 0)]
-    next_p = Point(0, 0)
+    last = (0, 0)
+    dist = 0
+    wire = {}
     for movement in raw_in:
         direction = movement[0]
         length = int(movement[1:])
         x = y = 0
         if direction == 'R':
-            x += length
+            x = 1
         if direction == 'L':
-            x -= length
+            x = -1
         if direction == 'U':
-            y += length
+            y = 1
         if direction == 'D':
-            y -= length
-        next_p = Point((next_p.x + x, next_p.y + y))
-        line.append(next_p)
-    return LineString(line)
+            y = -1
+        for _ in range(length):
+            last = (last[0] + x, last[1] + y)
+            wire[last] = dist
+            dist += 1
+    return wire
 
 
-def calculate_intersections(wire1, wire2):
-    """
-    The wires twist and turn, but the two wires occasionally cross paths.
-    To fix the circuit, you need to find the intersection point closest
-    to the central port.
-    Because the wires are on a grid, use the Manhattan distance for
-    this measurement.
-    While the wires do technically cross right at the central port
-    where they both start, this point does not count,
-    nor does a wire count as crossing with itself.
-    """
-    intersections = wire1.intersection(wire2)
-    return intersections
+def calc_min_distance(intersections):
+    min_dist = min(intersections, key=lambda x: (abs(x[0]) + abs(x[1])))
+    return min_dist
 
 
-def calculate_distances(intersections):
-    return [x for x in [int(abs(isect.x) + abs(isect.y))
-                        for isect in intersections]
-            if x]  # remove x if x == 0 (center)
-
-
-def part1():
+def part1(wire1, wire2):
     """
     Solve the puzzle (part 1), given the input in input.txt
     """
-    line1, line2 = read_input('input.txt')
-    wire1 = parse_wire(line1)
-    wire2 = parse_wire(line2)
-    intersections = calculate_intersections(wire1, wire2)
-    distances = calculate_distances(intersections)
-    return min(distances)
+    isects = wire1.keys() & wire2.keys()
+    return sum(calc_min_distance(isects))
 
 
-def part2():
+def part2(wire1, wire2):
     """
     Solve the puzzle (part 2), given the input in input.txt
     """
-    wires = read_input('input.txt')
+    pass
 
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         arg = int(sys.argv[1])
+        lines = read_input('input.txt')
+        wire1, wire2 = [parse_wire(line) for line in lines]
         if arg == 1:
-            print(part1())
+            print(part1(wire1, wire2))
         if arg == 2:
-            print(part2())
+            print(part2(wire1, wire2))
     else:
         print("Usage: ./main.py [1,2]")
         print("Decide between part 1 and 2")
