@@ -33,4 +33,4 @@ pytest dayXX/
 
 ### Issues
 
-If `pytest` is not working, try `python -m pytest` or `deactivate && source venv/bin/activate` and run `pytest` again.
+If `pytest` is not working, try `python3 -m pytest` or `deactivate && source venv/bin/activate` and run `pytest` again.
