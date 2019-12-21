@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 
 import unittest
-import pytest
 import io
 import os
-import sys
 
 from .main import part1, part2, run
 

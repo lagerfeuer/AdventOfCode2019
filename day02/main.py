@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 from enum import Enum
 from os.path import dirname
 from os.path import join

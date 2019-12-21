@@ -4,7 +4,8 @@ import unittest
 
 import os
 
-from .main import part1, part2, parse_wire, calc_min_distance, calc_fewest_steps, read_input
+from .main import part1, part2, parse_wire, calc_min_distance, \
+    calc_fewest_steps, read_input
 
 
 class Day3Test(unittest.TestCase):

@@ -3,7 +3,6 @@
 import unittest
 import io
 import os
-import sys
 
 from .main import part1, part2, VM, run_sequence, run_parallel
 

@@ -2,12 +2,10 @@
 
 import sys
 import io
-import os
 from itertools import permutations
 from enum import Enum
 from os.path import dirname
 from os.path import join
-from tempfile import mkstemp
 
 
 SIZE = 5

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
 import io
-from contextlib import redirect_stdout
 from enum import Enum
 from os.path import dirname
 from os.path import join

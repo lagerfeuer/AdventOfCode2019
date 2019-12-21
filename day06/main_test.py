@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import unittest
-import io
 import os
 
 from .main import part1, part2, parse_orbits, calc_orbits, calc_distance
