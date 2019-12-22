@@ -15,12 +15,11 @@ def read_input(file_name='input.txt'):
     """
     Read input from file_name
     """
-    input_list = []
     # always open relative to current file
     file_name = join(dirname(__file__), file_name)
     with open(file_name, 'r') as f_in:
         input_list = f_in.read().split(',')
-    return list(map(int, input_list))
+        return list(map(int, input_list))
 
 
 def run(program_in):

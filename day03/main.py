@@ -8,13 +8,11 @@ def read_input(file_name='input.txt'):
     """
     Read input from file_name
     """
-    input_list = []
     # always open relative to current file
     file_name = join(dirname(__file__), file_name)
     with open(file_name, 'r') as f_in:
-        input_list = [wire.strip().split(',')
-                      for wire in f_in.readlines()]
-    return input_list
+        return [wire.strip().split(',')
+                for wire in f_in.readlines()]
 
 
 def parse_wire(raw_in):

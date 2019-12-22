@@ -9,14 +9,13 @@ def read_input(file_name='input.txt'):
     """
     Read input from file_name
     """
-    input_list = []
     # always open relative to current file
     file_name = join(dirname(__file__), file_name)
     with open(file_name, 'r') as f_in:
         input_list = [line.strip()
                       for line in f_in.readlines()
                       if line.strip()]
-    return map(int, input_list)
+        return map(int, input_list)
 
 
 def fuel_required(mass):
