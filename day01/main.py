@@ -5,7 +5,7 @@ from os.path import dirname
 from os.path import join
 
 
-def read_input(file_name):
+def read_input(file_name='input.txt'):
     """
     Read input from file_name
     """

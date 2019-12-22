@@ -11,7 +11,7 @@ class OpCodes(Enum):
     HLT = 99
 
 
-def read_input(file_name):
+def read_input(file_name='input.txt'):
     """
     Read input from file_name
     """
