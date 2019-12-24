@@ -28,16 +28,22 @@ class Day8Test(unittest.TestCase):
         data = "0222112222120000"
         dim = (2, 2)
         layers = parse(data, dim)
-        out = overlay(layers[::-1])
+        out = overlay(layers)
         self.assertEqual(ref, out)
 
     def test_solution1(self):
         out = part1()
         self.assertEqual(out, 1572)
 
-    # def test_solution2(self):
-    #     out = part2()
-    #     self.assertEqual(out, 8754464)
+    def test_solution2(self):
+        ref = '\n'.join(["#  # #   ##  # #### #### ",
+                         "# #  #   ##  # #    #    ",
+                         "##    # # #### ###  ###  ",
+                         "# #    #  #  # #    #    ",
+                         "# #    #  #  # #    #    ",
+                         "#  #   #  #  # #    #### "])
+        out = part2()
+        self.assertEqual(out, ref)
 
 
 if __name__ == "__main__":

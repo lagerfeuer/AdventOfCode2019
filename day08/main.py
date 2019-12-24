@@ -33,10 +33,12 @@ def chunkify(data, chunk_size):
 def parse(data, dimension):
     width, height = dimension
     frame_size = width * height
-    return [Layer(frame, dimension) for frame in chunkify(data, frame_size)]
+    return [Layer(frame, dimension)
+            for frame in chunkify(data, frame_size)]
 
 
 def overlay(layers):
+    layers = layers[::-1]
     data = layers[0].stream()
     for layer in layers[1:]:
         data = [new if new != 2 else old
@@ -52,7 +54,7 @@ def part1():
 
 
 def part2():
-    layers = parse(read_input(), (25, 6))[::-1]
+    layers = parse(read_input(), (25, 6))
     data = overlay(layers)
     visual = [{0: ' ', 1: '#'}[e] for e in data]
     return '\n'.join(chunkify(''.join(visual), 25))
